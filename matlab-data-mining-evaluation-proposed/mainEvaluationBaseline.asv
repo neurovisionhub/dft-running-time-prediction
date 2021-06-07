@@ -1,0 +1,5 @@
+addpath('./BP/')
+addpath('./data/')
+load('../features-baseline/baseline-features.mat')
+load('../descriptores42QuerieTrecCW09.mat')
+

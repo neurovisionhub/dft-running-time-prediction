@@ -1,0 +1,10 @@
+function [TrainingAccuracy, TestingAccuracy,rOut] = mRegresion(train_data, test_data)
+X = train_data(:,2:7);
+Y = train_data(:,1);
+
+[beta,Sigma,E,CovB,logL] = mvregress(X,Y);
+TrainingAccuracy = sqrt(mse(E));
+TestingAccuracy = sqrt(mse(E));
+rOut = sqrt(mse(E));
+salida = beta
+end
