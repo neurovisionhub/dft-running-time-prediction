@@ -57,14 +57,9 @@ Series of machine learning experiments and data mining tests for the evaluation 
 Techniques to predict the processing time of document ranking algorithms are compared, where predicting performance allows to allocate resources efficiently in web search engines.
 
 
-
-
-
 ### run With
 
 * open file ./test.m and run with matlab 
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -72,11 +67,9 @@ Techniques to predict the processing time of document ranking algorithms are com
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
+matlab 2014 or higher
 
-This is an example of how to list things you need to use the software and how to install them.
-* matlab 2014 or higher
-  ``` https://la.mathworks.com/products/matlab.html 
-  ```
+* https://la.mathworks.com/products/matlab.html 
 
 ### Installation
 
