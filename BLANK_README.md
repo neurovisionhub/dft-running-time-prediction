@@ -6,10 +6,11 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">dft-running-time-prediction</h3>
+  <h3 align="center">A DFT-Based Running Time Prediction Algorithm for
+Web Queries</h3>
 
   <p align="center">
-    project_description
+    Oscar Rojas, Veronica Gil-Costa and Mauricio Marín
     <br />
     <a href="https://github.com/neurovisionhub/dft-running-time-prediction"><strong>Explore the docs »</strong></a>
     <br />
