@@ -1,5 +1,12 @@
-function [data_test] = main(config_id)
+function [data_test,labelsD,labelsA] = main(config_id)
 data_test=[];
+% labelsP = [];
+% labelsLS = [];
+% labelst = [];
+% labelsk = [];
+% labelsN = [];
+labelsD = [];
+labelsA = [];
 %% general options
 %% default
 %% ls = {0:local,1:shared}
@@ -29,13 +36,31 @@ switch config_id
         %% 6: BM-WAND/ClueWeb/TfIDF: 7: BM-WAND/Gov2/TfIDF %%
         %% examples 
         data_web = 0;
-        data_test=example_prediction(data_web,p_test,NHNeurons);
-        data_web = 1;
-        data_test=[data_test,example_prediction(data_web,p_test,NHNeurons)];
+        %labelsD=[];
+        [data_test_tmp,str,a]=example_prediction(data_web,p_test,NHNeurons);
+        data_test = [data_test,data_test_tmp];
+        labelsD =[labelsD,string(str);];
+        labelsA =[labelsA,a;];
+        
+%         data_web = 1;
+%         [data_test_tmp,str,a]=example_prediction(data_web,p_test,NHNeurons);
+%         [data_test]=[data_test,data_test_tmp];
+%         labelsD =[labelsD,string(str);];
+%         labelsA =[labelsA,a;];
+        
         data_web = 4;
-        data_test=[data_test,example_prediction(data_web,p_test,NHNeurons)];
-        data_web = 5;
-        data_test=[data_test,example_prediction(data_web,p_test,NHNeurons)];
+        [data_test_tmp,str,a]=example_prediction(data_web,p_test,NHNeurons);
+        [data_test]=[data_test,data_test_tmp];
+        labelsD =[labelsD,string(str);]
+        labelsA =[labelsA,a;]
+%         
+%         
+%         data_web = 5;
+%         [data_test_tmp,str,a]=example_prediction(data_web,p_test,NHNeurons);
+%         [data_test]=[data_test,data_test_tmp];
+%         labelsD =[labelsD,string(str);]
+%         labelsA =[labelsA,a;]
+%         
         
     case 'parallel'
         disp('test runtime parallel prediction')
@@ -46,7 +71,7 @@ switch config_id
         t=4; 
         %% Experiment for k={10,100,1000,10000}%%
         %k=1000;
-        %% P -> 0:baseline; 1: dft-prediction %%
+        % P -> 0:baseline; 1: dft-prediction %%
         %% examples
         k=10;P = 0;       
         [data_test] = example_prediction_parallel(ls,t,k,P,p_test,NHNeurons)
@@ -78,10 +103,10 @@ switch config_id
     case 'block'
         disp('block test runtime parallel prediction')
         %% examples
-        %% Baseline
+        % Baseline
         P=0;
         data_test = example_prediction_parallel_block(ls,t,k,P,p_test,vector_NHNeurons);
-        %% DFT-Based
+        % DFT-Based
         P=1;
         data_test = [data_test,example_prediction_parallel_block(ls,t,k,P,p_test,vector_NHNeurons)];
     

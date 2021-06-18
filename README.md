@@ -39,7 +39,6 @@ Web Queries</h3>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
  <!--   <li><a href="#contact">Contact</a></li>
@@ -87,9 +86,55 @@ matlab 2014 or higher
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+In root folder, edit "test.m" to run predefined experiments (**'simple','parallel','all','cross-fold','visual-map','block'**), where 'configdefault.m' loads the experimental data.
+
+
+
+   ```sh
+clear
+addpath(genpath('./'))
+configdefault;
+cd train-test\
+
+% config examples
+% Simple test Baseline vs DFT-Based 
+% Selecction data-web
+[data_simple,labelsD,labelsA]= main('simple');
+data = [labelsD;labelsA;data_simple];
+data = [["","", "Baseline","DFT-Based"]',data];
+T = table(data)
+
+% runtime-parallel prediction
+%[data_parallel,~]= main('parallel');
+.
+.
+
+   ```
+
+
+main.m is a routine that receives as input a label (that describes the experiment) and outputs an array or tables.
+
+Matrix Data
+
+   ```sh
+   data_simple =
+
+    0.9636    0.0219    0.8906    0.0356    0.9015    0.0490    0.9309    0.0330
+    0.9688    0.0203    0.9279    0.0290    0.9235    0.0432    0.9324    0.0325
+
+Table
+
+                                       data                                    
+    ___________________________________________________________________________
+
+    ""             "W.CW.BM25"    "W.CW.BM25"    "BMW.CW.BM25"    "BMW.CW.BM25"
+    ""             "PCr"          "RMSE"         "PCr"            "RMSE"       
+    "Baseline"     "0.96363"      "0.021945"     "0.90145"        "0.049025"   
+    "DFT-Based"    "0.96875"      "0.020327"     "0.92353"        "0.043161"
+   ```
+
+
 
 
 
@@ -110,9 +155,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+O. Rojas - [orojas.cl](https://orojas.cl) - oscar.rojas.d@usach.cl
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/neurovisionhub/dft-running-time-prediction](https://github.com/neurovisionhub/dft-running-time-prediction)
 
 
 
@@ -123,7 +168,7 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 * []()
 * []()
 
-
+<!-- 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
 
