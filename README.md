@@ -28,7 +28,7 @@ Web Queries</h3>
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#run">run</a></li>
       </ul>
     </li>
     <li>
@@ -39,6 +39,10 @@ Web Queries</h3>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+   <ul>
+        <li><a href="#main-configuration">main configuration</a></li>
+        <li><a href="#data-web">data-web</a></li>
+      </ul>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
  <!--   <li><a href="#contact">Contact</a></li>
@@ -56,7 +60,7 @@ Series of machine learning experiments and data mining tests for the evaluation 
 Techniques to predict the processing time of document ranking algorithms are compared, where predicting performance allows to allocate resources efficiently in web search engines.
 
 
-### run With
+### run 
 
 * open file ./test.m and run with matlab 
 
@@ -88,8 +92,6 @@ matlab 2014 or higher
 
 
 In root folder, edit "test.m" to run predefined experiments (**'simple','parallel','all','cross-fold','visual-map','block'**), where 'configdefault.m' loads the experimental data.
-
-
 
    ```sh
 clear
@@ -135,8 +137,29 @@ Table
    ```
 
 
+## main-configuration
+The training and test run configuration is set to ./train-test/main.m. General options include: 
 
+```sh
+% ls = {0:local,1:shared}
+% t = {0,1,2,3} = {1 thread, 2 threads, 4 threads, 8 threads}
+% k = {10,100,1000,10000}  
+% P = {0:baseline, 1:DFT-Based}
+% p_test ={ %test }
+%  sequence of neurons hidden layer for multiple test
+vector_NHNeurons = [1,5,10,25,50];
+% number of hidden neurons
+NHNeurons = 5;
+```
+More information in [train-test]
 
+## data-web
+
+Directory data-web contains:
+
+[+] Queries Trec09 processed for ClueWeb and Gov2
+[+] Descriptors of terms with baseline technique (ClueWeb/Gov2 - BM25/TFIDF) and query 42 descriptors.
+[+] Baseline technique query descriptors computed for k = 10,100,1000,10000 for ClueWeb with BM2
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -174,15 +197,5 @@ Project Link: [https://github.com/neurovisionhub/dft-running-time-prediction](ht
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/github_username
+
+[train-test]: https://github.com/neurovisionhub/dft-running-time-prediction/tree/master/train-test
