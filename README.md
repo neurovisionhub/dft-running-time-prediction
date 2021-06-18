@@ -157,9 +157,9 @@ More information in [train-test]
 
 Directory data-web contains:
 
-[+] Queries Trec09 processed for ClueWeb and Gov2
-[+] Descriptors of terms with baseline technique (ClueWeb/Gov2 - BM25/TFIDF) and query 42 descriptors.
-[+] Baseline technique query descriptors computed for k = 10,100,1000,10000 for ClueWeb with BM2
+*  Queries Trec09 processed for ClueWeb and Gov2
+* Descriptors of terms with baseline technique (for ClueWeb/Gov2 - BM25/TFIDF) and query 42 descriptors.
+* Baseline technique query descriptors computed for k = 10,100,1000,10000 for ClueWeb with BM25
 
 <!-- CONTRIBUTING -->
 ## Contributing
