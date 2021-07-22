@@ -2,7 +2,7 @@ function [TrainingAccuracy, TestingAccuracy,rOut,vT,vP] = svm2(train_data, test_
 
 %rng default  % For reproducibility
 %Mdl = fitrsvm(Tbl,'Rings','KernelFunction','gaussian','KernelScale','auto','Standardize',true)
-X = train_data(:,2:7);
+X = train_data(:,2:end);
 Y = train_data(:,1);
 %Mdl = fitrsvm(xInTrain,xTargetTrain)
 %MdlLin = fitrsvm(X,Y,'Standardize',true,'KFold',5)
@@ -25,7 +25,7 @@ MdlLin = fitrsvm(X,Y,'KernelFunction','gaussian','KernelScale','auto','Standardi
 %y=test_data(:,1);
 %mseLin = kfoldLoss(MdlLin)
 %mseGau = kfoldLoss(MdlGau)
-y2 = predict(MdlLin,test_data(:,2:7));
+y2 = predict(MdlLin,test_data(:,2:end));
 yT = test_data(:,1)';
 TestingAccuracy = sqrt(mse(y2 - yT))
 [r,p] = corrcoef(y2',yT');

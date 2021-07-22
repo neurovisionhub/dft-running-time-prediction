@@ -1,4 +1,4 @@
-%% Evaluation prediction %%
+ %% Evaluation prediction %%
 function [matrixCompleta] = evalpredictor(tipoVCOption,strAlgoritmo,strScore,strDataWeb,hLayers,metodo,all,sw)
 matrixCompleta = [];
 %metodo

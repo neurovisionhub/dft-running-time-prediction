@@ -1,5 +1,5 @@
 function [TrainingAccuracy, TestingAccuracy,rOut] = rlineal(train_data, test_data)
-X = train_data(:,2:7);
+X = train_data(:,2:end);
 Y = train_data(:,1);
 
 %[beta,Sigma,E,CovB,logL] = mvregress(X,Y);
@@ -8,7 +8,7 @@ Y = train_data(:,1);
 %  y=test_data(:,1);
 %  y2 = predict(mdl,In)
  
-y2 = predict(mdl,test_data(:,2:7));
+y2 = predict(mdl,test_data(:,2:end));
 yT = test_data(:,1)';
 TestingAccuracy = sqrt(mse(y2 - yT));
 [r,p] = corrcoef(y2',yT');
