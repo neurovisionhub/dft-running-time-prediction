@@ -4,7 +4,7 @@ paroptions = statset('UseParallel',false);
 fboot=1;
 surrogate='on';
 disp('Training the tree bagger')
-In = train_data(:,2:7);
+In = train_data(:,2:end);
 Out = train_data(:,1);
 tic
 b = TreeBagger(...
@@ -31,7 +31,7 @@ TrainingAccuracy = sqrt(mse(y2 - yT));
 %--------------------------------------------------------------------------
 % Estimate Output using tree bagger
 disp('Estimate Output using tree bagger')
-In = test_data(:,2:7);
+In = test_data(:,2:end);
 x=test_data(:,1);
 
 y=predict(b, In);

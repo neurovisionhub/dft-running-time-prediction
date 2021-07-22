@@ -1,5 +1,5 @@
 function [TrainingAccuracy, TestingAccuracy,rOut] = mRegresion(train_data, test_data)
-X = train_data(:,2:7);
+X = train_data(:,2:end);
 Y = train_data(:,1);
 
 [beta,Sigma,E,CovB,logL] = mvregress(X,Y);
@@ -8,7 +8,7 @@ TrainingAccuracy = sqrt(mse(E));
 %rOut = sqrt(mse(E));
 
 
-In = test_data(:,2:7);
+In = test_data(:,2:end);
 x=test_data(:,1);
 salida = In*beta;
 TestingAccuracy = sqrt(mse(salida - x));
@@ -18,7 +18,7 @@ rOut = cct;
 
 
 % 
-% y2 = predict(mdl,test_data(:,2:7));
+% y2 = predict(mdl,test_data(:,2:end));
 % yT = test_data(:,1)';
 % TestingAccuracy = sqrt(mse(y2 - yT));
 % [r,p] = corrcoef(y2',yT');
